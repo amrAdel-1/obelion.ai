@@ -11,11 +11,11 @@ resource "aws_route_table" "public_rt" {
 }
 
 resource "aws_route_table_association" "public_rt_association_A" {
-  subnet_id      = var.public_subnets_A
+  subnet_id      = var.public_subnets_1
   route_table_id = aws_route_table.public_rt.id
 }
 resource "aws_route_table_association" "public_rt_association_B" {
-  subnet_id      = var.public_subnets_B
+  subnet_id      = var.public_subnets_2
   route_table_id = aws_route_table.public_rt.id
 }
 
@@ -29,11 +29,11 @@ resource "aws_route_table" "private_rt" {
 }
 
 resource "aws_route_table_association" "private_rt_association_A" {
-  subnet_id      = var.private_subnets_A
+  subnet_id      = var.private_subnets_1
   route_table_id = aws_route_table.private_rt.id
 }
 
 resource "aws_route_table_association" "private_rt_association_B" {
-  subnet_id      = var.private_subnets_B
+  subnet_id      = var.private_subnets_2
   route_table_id = aws_route_table.private_rt.id
 }

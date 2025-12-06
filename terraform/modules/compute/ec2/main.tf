@@ -1,12 +1,12 @@
 #========================================
 # create key pair for Obelion-Cloud instances 
 #========================================
-resource "tls_private_key" "Obelion-Cloud-key" {
+resource "tls_private_key" "Obelion-ai" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 resource "aws_key_pair" "Obelion-Cloud-key" {
-  key_name   = "Obelion-Cloud-key"
+  key_name   = "Obelion-ai"
   public_key = tls_private_key.Obelion-Cloud-key.public_key_openssh
   provisioner "local-exec" {
     command = "echo '${tls_private_key.Obelion-Cloud-key.private_key_pem}' > ./Obelion-Cloud-key.pem && chmod 600 ./Obelion-Cloud-key.pem"
@@ -16,7 +16,7 @@ resource "aws_key_pair" "Obelion-Cloud-key" {
 resource "aws_instance" "Frontend" {
   ami                         = var.ami
   instance_type               = var.instance_type
-  key_name                    = aws_key_pair.Obelion-Cloud-key.key_name
+  key_name                    = aws_key_pair.Obelion-ai.key_name
   subnet_id                   = var.public_subnet_A_id
   security_groups             = [var.frontend_sg_id]
   associate_public_ip_address = true
