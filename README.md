@@ -20,89 +20,83 @@ This repository contains production-ready Infrastructure as Code (Terraform) and
 ## Repository Structure
 
 
+Repository Root
 ├── terraform/
-│ ├── modules/
-│ │ ├── networking/
-│ │ │ ├── vpc/
-│ │ │ │ ├── main.tf
-│ │ │ │ ├── variables.tf
-│ │ │ │ ├── outputs.tf
-│ │ │ │
-│ │ │ ├── subnet/
-│ │ │ │ ├── main.tf
-│ │ │ │ ├── variables.tf
-│ │ │ │ ├── outputs.tf
-│ │ │ │
-│ │ │ ├── route-table/
-│ │ │ │ ├── main.tf
-│ │ │ │ ├── variables.tf
-│ │ │ │ ├── outputs.tf
-│ │ │ │
-│ │ │ └── nacl/
-│ │ │ ├── main.tf
-│ │ │ ├── variables.tf
-│ │ │ ├── outputs.tf
-│ │ │
-│ │ ├── security/
-│ │ │ └── security_group/
-│ │ │ ├── main.tf
-│ │ │ ├── variables.tf
-│ │ │ ├── outputs.tf
-│ │ │
-│ │ ├── compute/
-│ │ │ └── ec2/
-│ │ │ ├── main.tf
-│ │ │ ├── variables.tf
-│ │ │ ├── outputs.tf
-│ │ │ ├── backend-script.sh
-│ │ │ ├── docker-script.sh
-│ │ │
-│ │ ├── database/
-│ │ │ └── rds/
-│ │ │ ├── main.tf
-│ │ │ ├── variables.tf
-│ │ │ ├── outputs.tf
-│ │ │ ├── parameter-group.tf
-│ │ │ ├── subnet-group.tf
-│ │ │
-│ │ └── monitoring/
-│ │ └── cloudwatch/
-│ │ ├── main.tf
-│ │ ├── variables.tf
-│ │ ├── outputs.tf
-│ │
-│ ├── environments/
-│ │ ├── dev/
-│ │ │ ├── main.tf
-│ │ │ ├── provider.tf
-│ │ │ ├── variables.tf
-│ │ │ └── terraform.tfvars
-│ │ │
-│ │ ├── staging/
-│ │ │ ├── main.tf
-│ │ │ ├── provider.tf
-│ │ │ ├── variables.tf
-│ │ │ └── terraform.tfvars
-│ │ │
-│ │ └── prod/
-│ │ ├── main.tf
-│ │ ├── provider.tf
-│ │ ├── variables.tf
-│ │ └── terraform.tfvars
-│ │
-│ └── README.md
+│   ├── modules/
+│   │   ├── networking/
+│   │   │   ├── vpc/
+│   │   │   │   ├── main.tf
+│   │   │   │   ├── variables.tf
+│   │   │   │   └── outputs.tf
+│   │   │   ├── subnet/
+│   │   │   │   ├── main.tf
+│   │   │   │   ├── variables.tf
+│   │   │   │   └── outputs.tf
+│   │   │   ├── route-table/
+│   │   │   │   ├── main.tf
+│   │   │   │   ├── variables.tf
+│   │   │   │   └── outputs.tf
+│   │   │   └── nacl/
+│   │   │       ├── main.tf
+│   │   │       ├── variables.tf
+│   │   │       └── outputs.tf
+│   │   ├── security/
+│   │   │   └── security_group/
+│   │   │       ├── main.tf
+│   │   │       ├── variables.tf
+│   │   │       └── outputs.tf
+│   │   ├── compute/
+│   │   │   └── ec2/
+│   │   │       ├── main.tf
+│   │   │       ├── variables.tf
+│   │   │       ├── outputs.tf
+│   │   │       ├── backend-script.sh
+│   │   │       └── docker-script.sh
+│   │   ├── database/
+│   │   │   └── rds/
+│   │   │       ├── main.tf
+│   │   │       ├── variables.tf
+│   │   │       ├── outputs.tf
+│   │   │       ├── parameter-group.tf
+│   │   │       └── subnet-group.tf
+│   │   └── monitoring/
+│   │       └── cloudwatch/
+│   │           ├── main.tf
+│   │           ├── variables.tf
+│   │           └── outputs.tf
+│   └── environments/
+│       ├── dev/
+│       │   ├── main.tf
+│       │   ├── provider.tf
+│       │   ├── variables.tf
+│       │   └── terraform.tfvars
+│       ├── staging/
+│       │   ├── main.tf
+│       │   ├── provider.tf
+│       │   ├── variables.tf
+│       │   └── terraform.tfvars
+│       └── prod/
+│           ├── main.tf
+│           ├── provider.tf
+│           ├── variables.tf
+│           └── terraform.tfvars
 │
-├── laravel/ # Backend application
-│ ├── .env.example
-│ ├── app/
-│ ├── public/
-│ └── .github/workflows/
-│ └── deploy.yml
+├── laravel-backend/
+│   ├── .env.example
+│   ├── app/
+│   ├── public/
+│   └── .github/
+│       └── workflows/
+│           └── deploy.yml
 │
-├── uptime-kuma/ # Frontend monitoring app
-│ ├── docker-compose.yml
-│ └── .github/workflows/
-│ └── deploy.yml
+├── uptime-kuma-frontend/
+│   ├── docker-compose.yml
+│   └── .github/
+│       └── workflows/
+│           └── deploy.yml
+│
+└── README.md
+
 
 Prerequisites
 
